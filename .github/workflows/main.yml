@@ -10,14 +10,11 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: {{matrix.node_version}}
+          node-version: '17.x'
 
       - name: install modules
         run: npm ci
