@@ -20,3 +20,8 @@ Light.args = {};
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LightShort = Template.bind({});
+LightShort.args = {
+    short: true
+};

@@ -5,10 +5,13 @@ import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 
 
 interface LangSwitcherProps {
-  className?: string
+    className?: string;
+    short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
+    const { className, short } = props;
+
     const { t, i18n } = useTranslation()
 
     const toggle = () => {
@@ -22,7 +25,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
             variant={ButtonVariant.CLEAR}
             className={classNames('', {}, [className])}
         >
-            {t('Язык')}
+            {t(short ? 'Короткий язык' : 'Язык')}
         </Button>
     )
 }
