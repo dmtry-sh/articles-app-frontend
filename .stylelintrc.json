@@ -1,5 +1,6 @@
 {
     "extends": "stylelint-config-standard",
+    "customSyntax": "postcss-scss",
     "rules": {
         "indentation": 4,
         "selector-class-pattern": null
