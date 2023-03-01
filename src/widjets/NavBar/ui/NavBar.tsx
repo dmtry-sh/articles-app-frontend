@@ -2,8 +2,8 @@ import { type FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './NavBar.module.scss'
-import { Button, ButtonVariant } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal/Modal";
+import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { Modal } from 'shared/ui/Modal/Modal';
 
 interface NavBarProps {
   className?: string

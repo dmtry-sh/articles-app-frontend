@@ -1,8 +1,8 @@
-import webpack, { Configuration, RuleSetRule } from "webpack";
-import path from "path";
-import { buildCssLoader } from "../build/loaders/buildCssLoader";
-import { IBuildPaths } from "../build/types/config";
-import { buildSvgLoader } from "../build/loaders/buildSvgLoader";
+import webpack, { Configuration, RuleSetRule } from 'webpack';
+import path from 'path';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import { IBuildPaths } from '../build/types/config';
+import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
 export default ({ config }: { config: Configuration }) => {
     const paths: IBuildPaths = {

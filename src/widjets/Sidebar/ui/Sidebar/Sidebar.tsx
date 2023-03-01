@@ -1,5 +1,5 @@
 import { type FC, useState } from 'react'
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames'
 import { LangSwitcher } from 'widjets/LangSwitcher'
 import { ThemeSwitcher } from 'widjets/ThemeSwitcher'

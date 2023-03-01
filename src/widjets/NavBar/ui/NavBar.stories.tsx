@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from "app/providers/ThemeProvider";
-import { NavBar } from "./NavBar";
-import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from 'app/providers/ThemeProvider';
+import { NavBar } from './NavBar';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 export default {
     title: 'widjets/NavBar',

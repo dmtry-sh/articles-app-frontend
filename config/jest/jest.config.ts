@@ -18,7 +18,7 @@ export default {
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
 
-    modulePaths: ["node_modules", '<rootDir>/src'],
+    modulePaths: ['node_modules', '<rootDir>/src'],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -64,7 +64,9 @@ export default {
     // globalTeardown: undefined,
 
     // A set of global variables that need to be available in all test environments
-    // globals: {},
+    globals: {
+        '__IS_DEV__': true
+    },
 
     // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
@@ -121,7 +123,7 @@ export default {
     // restoreMocks: false,
 
     // The root directory that Jest should scan for tests and modules within
-    rootDir: "../../",
+    rootDir: '../../',
 
     // A list of paths to directories that Jest should use to search for files in
     // roots: [
@@ -144,7 +146,7 @@ export default {
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
-    testEnvironment: "jsdom",
+    testEnvironment: 'jsdom',
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},

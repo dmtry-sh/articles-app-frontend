@@ -48,6 +48,8 @@ module.exports = {
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
         'object-curly-spacing': ['error', 'always'],
+        'no-param-reassign': 'off',
+        'quotes': ['error', 'single'],
         'i18next/no-literal-string': [
             'error',
             {

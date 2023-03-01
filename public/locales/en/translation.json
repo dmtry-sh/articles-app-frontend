@@ -9,5 +9,7 @@
     "Перезагрузить страницу": "Reload page",
     "Переключить": "Toggle",
     "Короткий язык": "En",
-    "Войти": "Sign In"
+    "Войти": "Sign In",
+    "Increment": "Increment",
+    "Decrement": "Decrement"
 }
