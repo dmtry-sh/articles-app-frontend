@@ -1,8 +1,9 @@
-import { type FC } from 'react'
+import { type FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import cls from './NavBar.module.scss'
+import { Button, ButtonVariant } from "shared/ui/Button/Button";
+import { Modal } from "shared/ui/Modal/Modal";
 
 interface NavBarProps {
   className?: string
@@ -11,11 +12,31 @@ interface NavBarProps {
 export const NavBar: FC<NavBarProps> = ({ className }) => {
     const { t } = useTranslation()
 
+    const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
+
+    const onToggleModal = useCallback(() => {
+        setIsAuthModalOpened(prev => !prev);
+    }, [])
+
+
+
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <div className={cls.links}>
-                <AppLink theme={AppLinkTheme.PRIMARY} to={'/'} className={cls.mainLink}>{t('Главная страница')}</AppLink>
-            </div>
+            <Button
+                variant={ButtonVariant.CLEAR_INVERTED}
+                className={cls.links}
+                onClick={onToggleModal}
+            >
+                {t('Войти')}
+            </Button>
+            <Modal
+                isOpen={isAuthModalOpened}
+                onClose={onToggleModal}
+            >
+                {/* eslint-disable-next-line i18next/no-literal-string */}
+                {/* eslint-disable-next-line i18next/no-literal-string */}
+                Рандомный текст
+            </Modal>
         </div>
     )
 }

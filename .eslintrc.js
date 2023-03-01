@@ -15,9 +15,10 @@ module.exports = {
     },
     plugins: [
         'react',
+        'react-hooks',
         '@typescript-eslint',
         'import',
-        'i18next'
+        'i18next',
     ],
     settings: {
         react: {
@@ -28,23 +29,25 @@ module.exports = {
         }
     },
     rules: {
-        'react/react-in-jsx-scope': 'off',
+        indent: ['error', 4],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        indent: ['error', 4],
+        'react/react-in-jsx-scope': 'off',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
+        'react/require-default-props': 'off',
+        'react/function-component-definition': 'off',
+        'react/prop-types': 'off',
+        'react/display-name': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'react/require-default-props': 'off',
-        'react/jsx-props-no-spreading': 'warn',
-        'react/function-component-definition': 'off',
         '@typescript-eslint/no-floating-promises': ['warn', { ignoreVoid: true }],
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
         'object-curly-spacing': ['error', 'always'],
-        'react/prop-types': 'off',
-        'react/display-name': 'off',
-        'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
         'i18next/no-literal-string': [
             'error',
             {
