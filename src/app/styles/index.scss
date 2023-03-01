@@ -1,6 +1,6 @@
 @import "./reset";
 @import "./variables/global";
-@import "./themes/normal";
+@import "themes/light";
 @import "./themes/dark";
 
 body {
@@ -10,8 +10,6 @@ body {
 
 .app {
     background: var(--bg-color);
-    color: inherit;
-    font: inherit;
     min-height: 100vh;
 }
 

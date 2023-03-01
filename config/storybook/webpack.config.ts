@@ -15,6 +15,12 @@ export default ({ config }: { config: Configuration }) => {
     config.resolve.modules.push(paths.src);
     config.resolve.extensions.push('.ts', '.tsx');
 
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: true
+        })
+    );
+
     config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
             return {
@@ -24,7 +30,7 @@ export default ({ config }: { config: Configuration }) => {
         }
 
         return rule;
-    })
+    });
 
     config.module.rules.push(buildSvgLoader());
     config.module.rules.push(buildCssLoader(true));

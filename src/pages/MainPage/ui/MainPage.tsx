@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Counter } from 'entities/Counter';
+import { Counter } from 'appEntities/Counter';
 
 function MainPage () {
     const { t } = useTranslation()
