@@ -10,14 +10,25 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator]
+
 } as ComponentMeta<typeof LoginForm>;
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
+const state = { loginForm: { username: 'admin', password: '123' } };
+
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [StoreDecorator(state)];
+
+export const PrimaryWithError = Template.bind({});
+PrimaryWithError.args = {};
+PrimaryWithError.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: '123', error: 'ERROR' } })];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: '123', isLoading: true } })];
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(state)];

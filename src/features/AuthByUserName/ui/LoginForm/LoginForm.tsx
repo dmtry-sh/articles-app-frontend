@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { loginActions } from '../../model/slice/loginSlice';
 import { Input } from 'shared/ui/Input/Input';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './LoginForm.module.scss';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
@@ -43,7 +44,8 @@ export const LoginForm: FC<LoginFormProps> = memo((props) => {
         <div
             className={classNames(cls.LoginForm, {}, [className])}
         >
-            {error && (<div>{error}</div>)}
+            <Text title={t('Форма авторизации')} />
+            {error && (<Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />)}
             <Input
                 type="text"
                 placeholder={t('Введите username')}
