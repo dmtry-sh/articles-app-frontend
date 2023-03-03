@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './NavBar.module.scss'
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { LoginModal } from 'features/AuthByUserName';
 
 interface NavBarProps {
   className?: string
@@ -12,10 +12,14 @@ interface NavBarProps {
 export const NavBar: FC<NavBarProps> = ({ className }) => {
     const { t } = useTranslation()
 
-    const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
+    const [isModalOpened, setIsModalOpened] = useState(false);
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthModalOpened(prev => !prev);
+    const onCloseModal = useCallback(() => {
+        setIsModalOpened(false);
+    }, []);
+
+    const onOpenModal = useCallback(() => {
+        setIsModalOpened(true);
     }, [])
 
 
@@ -25,18 +29,14 @@ export const NavBar: FC<NavBarProps> = ({ className }) => {
             <Button
                 variant={ButtonVariant.CLEAR_INVERTED}
                 className={cls.links}
-                onClick={onToggleModal}
+                onClick={onOpenModal}
             >
                 {t('Войти')}
             </Button>
-            <Modal
-                isOpen={isAuthModalOpened}
-                onClose={onToggleModal}
-            >
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                Рандомный текст
-            </Modal>
+            <LoginModal
+                isOpen={isModalOpened}
+                onClose={onCloseModal}
+            />
         </div>
     )
 }

@@ -1,0 +1,25 @@
+.InputWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.placeholder {
+    margin-right: 15px;
+}
+
+.input {
+    background: transparent;
+    outline: none;
+    border: 1px solid var(--inverted-bg-color);
+    transition: border 0.2s;
+    border-radius: 5px;
+    padding: 5px;
+    flex-grow: 1;
+    color: inherit;
+
+    &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
+}

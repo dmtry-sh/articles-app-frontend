@@ -9,7 +9,8 @@ interface ModalProps {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;
-    onClose?: () => void
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 200;
@@ -19,12 +20,14 @@ export const Modal: FC<ModalProps> = (props) => {
         className,
         children,
         isOpen,
-        onClose
+        onClose,
+        lazy
     } = props;
 
     const { theme } = useTheme();
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<NodeJS.Timeout>();
 
     const mods: Record<string, boolean> = {
@@ -50,7 +53,7 @@ export const Modal: FC<ModalProps> = (props) => {
         if (e.key === 'Escape') {
             closeHandler();
         }
-    }, [closeHandler])
+    }, [closeHandler]);
 
     useEffect(() => {
         if (isOpen) {
@@ -64,6 +67,16 @@ export const Modal: FC<ModalProps> = (props) => {
             }
         }
     }, [isOpen, onKeyDown]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
