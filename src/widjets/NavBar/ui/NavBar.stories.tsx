@@ -4,6 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { NavBar } from './NavBar';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
     title: 'widjets/NavBar',
@@ -11,7 +12,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [RouterDecorator]
+    decorators: [RouterDecorator, StoreDecorator({})]
 } as ComponentMeta<typeof NavBar>;
 
 const Template: ComponentStory<typeof NavBar> = (args) => <NavBar {...args} />;
@@ -23,3 +24,6 @@ export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const UserAuthorizedNavbar = Template.bind({});
+UserAuthorizedNavbar.args = {};
+UserAuthorizedNavbar.decorators = [StoreDecorator({ user: { authData: {} } })];
