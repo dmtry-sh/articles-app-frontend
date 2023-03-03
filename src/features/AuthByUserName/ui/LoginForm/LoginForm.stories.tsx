@@ -3,6 +3,8 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { LoginForm } from './LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
 
 export default {
     title: 'feature/LoginForm',
@@ -15,7 +17,7 @@ export default {
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
-const state = { loginForm: { username: 'admin', password: '123' } };
+const state: DeepPartial<StateSchema> = { loginForm: { username: 'admin', password: '123' } };
 
 export const Primary = Template.bind({});
 Primary.args = {};
