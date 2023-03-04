@@ -10,11 +10,11 @@ import cls from './LoginForm.module.scss';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm: FC<LoginFormProps> = memo((props) => {
+const LoginForm: FC<LoginFormProps> = memo((props) => {
     const { className } = props;
 
     const dispatch = useDispatch();
@@ -71,4 +71,6 @@ export const LoginForm: FC<LoginFormProps> = memo((props) => {
             </Button>
         </div>
     )
-})
+});
+
+export default LoginForm;
